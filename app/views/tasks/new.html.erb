@@ -1,0 +1,20 @@
+<h1><%= action_name.capitalize %> Task</h1>
+<%= form_with(model: @task, local: true) do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.label :priority %><br>
+    <%= form.select :priority, Task.priorities.keys.map { |p| [p.capitalize, p] } %>
+  </p>
+  <p>
+    <%= form.label :completed %><br>
+    <%= form.check_box :completed %>
+  </p>
+  <%= form.submit %>
+<% end %>
